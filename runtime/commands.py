@@ -483,7 +483,33 @@ class Commands(object):
 
     def checkupdates(self, silent=False):
         pass
-        
+
+    def cleanbindirs(self,side):
+        pathbinlk    = {0:self.binclient,    1:self.binserver}
+
+        for path, dirlist, filelist in os.walk(pathbinlk[side]):
+            for bin_file in glob.glob(os.path.join(path, '*.class')):
+                os.remove(bin_file)
+
+    def cleanreobfdir(self, side):
+        outpathlk = {0:self.dirreobfclt,    1:self.dirreobfsrv}
+        pathbinlk = {0:self.binclient,    1:self.binserver}
+        if os.path.exists(outpathlk[side]):
+            shutil.rmtree(outpathlk[side], ignore_errors=True)
+
+        shutil.copytree(pathbinlk[side], outpathlk[side])
+        for path, dirlist, filelist in os.walk(outpathlk[side]):
+            for bin_file in glob.glob(os.path.join(path, '*.class')):
+                os.remove(bin_file)
+
+        for i in range(4):
+            for path, dirlist, filelist in os.walk(outpathlk[side]):
+                if not dirlist and not filelist:
+                    shutil.rmtree(path)
+
+        if not os.path.exists(outpathlk[side]):
+            os.mkdir(outpathlk[side])
+
     def cleantempbin(self, side):
         pathbinlk = {0:self.binclienttmp,    1:self.binservertmp}
 
