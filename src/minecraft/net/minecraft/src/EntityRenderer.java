@@ -158,7 +158,7 @@ public class EntityRenderer
     private float getFOVModifier(float f)
     {
         EntityLiving entityliving = mc.renderViewEntity;
-        float f1 = 70F;
+        float f1 = 100F;
         if(entityliving.isInsideOfMaterial(Material.water))
         {
             f1 = 60F;

@@ -159,7 +159,7 @@ public class ItemRenderer
         {
             GL11.glColor4f(f3, f3, f3, 1.0F);
         }
-        if(itemstack != null && itemstack.itemID == Item.mapItem.shiftedIndex)
+        if(itemstack != null && itemstack.itemID == Item.mapItem.shiftedIndex) //Map
         {
             GL11.glPushMatrix();
             float f4 = 0.8F;
@@ -178,7 +178,7 @@ public class ItemRenderer
             }
             f8 = -MathHelper.cos(f8 * 3.141593F) * 0.5F + 0.5F;
             GL11.glTranslatef(0.0F, (0.0F * f4 - (1.0F - f1) * 1.2F - f8 * 0.5F) + 0.04F, -0.9F * f4);
-            GL11.glRotatef(90F, 0.0F, 1.0F, 0.0F);
+            GL11.glRotatef(120F, 0.0F, 1.0F, 0.0F); //
             GL11.glRotatef(f8 * -85F, 0.0F, 0.0F, 1.0F);
             GL11.glEnable(32826 /*GL_RESCALE_NORMAL_EXT*/);
             GL11.glBindTexture(3553 /*GL_TEXTURE_2D*/, mc.renderEngine.getTextureForDownloadableImage(mc.thePlayer.skinUrl, mc.thePlayer.getEntityTexture()));
@@ -234,16 +234,16 @@ public class ItemRenderer
             float f13 = MathHelper.sin(f9 * 3.141593F);
             float f17 = MathHelper.sin(MathHelper.sqrt_float(f9) * 3.141593F);
             GL11.glTranslatef(-f17 * 0.4F, MathHelper.sin(MathHelper.sqrt_float(f9) * 3.141593F * 2.0F) * 0.2F, -f13 * 0.2F);
-            GL11.glTranslatef(0.7F * f5, -0.65F * f5 - (1.0F - f1) * 0.6F, -0.9F * f5);
-            GL11.glRotatef(45F, 0.0F, 1.0F, 0.0F);
+            GL11.glTranslatef(0.7F * f5, 0.40F * f5 - (1.0F - f1) * 0.6F, -0.9F * f5);
+            GL11.glRotatef(120F, 0.1F, 0.5F, 0.0F); //TOOL ROTATION
             GL11.glEnable(32826 /*GL_RESCALE_NORMAL_EXT*/);
             f9 = entityplayersp.getSwingProgress(f);
             f13 = MathHelper.sin(f9 * f9 * 3.141593F);
             f17 = MathHelper.sin(MathHelper.sqrt_float(f9) * 3.141593F);
-            GL11.glRotatef(-f13 * 20F, 0.0F, 1.0F, 0.0F);
-            GL11.glRotatef(-f17 * 20F, 0.0F, 0.0F, 1.0F);
-            GL11.glRotatef(-f17 * 80F, 1.0F, 0.0F, 0.0F);
-            f9 = 0.4F;
+            GL11.glRotatef(-f13 * 0F, 10.0F, 0.0F, 0.0F);
+            GL11.glRotatef(-f17 * 0F, 0.0F, 0.0F, 1.0F);
+            GL11.glRotatef(-f17 * 0.1F, 1.0F, 0.0F, 0.0F);
+            f9 = 0.2F; //Item size
             GL11.glScalef(f9, f9, f9);
             if(itemstack.getItem().shouldRotateAroundWhenRendering())
             {
